@@ -83,7 +83,27 @@ class _HomePageState extends State<HomePage> {
                   style: Theme.of(context).textTheme.headlineMedium,
                 );
               },
-            )
+            ),
+            ElevatedButton(
+              onPressed: () {
+                String url = "https://www.google.com/";
+                Navigator.pushNamed(context, "myWebPage", arguments: url);
+              },
+              child: Text("Google"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                String url = "https://www.facebook.com/";
+                Navigator.pushNamed(context, "myWebPage", arguments: url);
+              },
+              child: Text("Facebook"),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  String url = "https://flutter.dev/";
+                  Navigator.pushNamed(context, "myWebPage", arguments: url);
+                },
+                child: Text("flutter"))
           ],
         ),
       ),

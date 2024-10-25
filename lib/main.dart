@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:government_services_app/providers/home_provider.dart';
+import 'package:government_services_app/providers/web_provider.dart';
 import 'package:government_services_app/view/home_page.dart';
+import 'package:government_services_app/view/my_web_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -20,14 +22,16 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) => HomeProvider(),
-        ),
+        ChangeNotifierProvider(create: (context) => HomeProvider()),
+        ChangeNotifierProvider(create: (context) => WebProvider()),
       ],
       builder: (context, child) {
         return MaterialApp(
           initialRoute: "/",
-          routes: {"/": (context) => HomePage()},
+          routes: {
+            "/": (context) => HomePage(),
+            "myWebPage": (context) => MyWebPage(),
+          },
         );
       },
     );
